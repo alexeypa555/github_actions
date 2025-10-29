@@ -7,6 +7,12 @@ jobs:
     steps:
         - name: Display node version on ubuntu
           run: ls -la
-        - uses: actions/checkout@v4    
+        - name: Copy files  
+          run: |
+            git init
+            git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com:$GITHUB_REPOSITORY"
+            git fetch origin 
+            git chechout main
+        # - uses: actions/checkout@v4    
         - name: List files
           run: ls -la
