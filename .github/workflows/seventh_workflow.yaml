@@ -1,9 +1,7 @@
-name: Fifth workflow
+name: Seventh workflow
 on: 
-  issues:
-    types: [edited, deleted]
-  pull_request:
-    types: [assigned]
+  schedule:
+    - cron:  '*/5 * * * *'     
 
 jobs: 
   success-command:
