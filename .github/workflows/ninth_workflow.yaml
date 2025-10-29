@@ -1,0 +1,32 @@
+name: Eighth workflow
+on: 
+  workflow_dispatch: 
+    inputs: 
+      titleCustom: 
+        description: Type the title
+        type: string
+        required: true
+        default: "Hello world"
+      selectCustom:
+        description: Select the title
+        type: choice
+        required: true
+        options:
+          - Value 1
+          - Value 2
+          - Value 3
+          - Value 4
+        default: "Value 4"
+      checkboxCustom:
+        description: Checkbox the title
+        type: boolean
+        required: false
+jobs: 
+  success-command:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Event vars
+          run: |
+            echo "Title: ${{inputs.titleCustom}}"
+            echo "Select: ${{inputs.selectCustom}}"
+            echo "Checkbox: ${{inputs.checkboxCustom}}"
