@@ -6,8 +6,13 @@ on:
       - completed
 
 jobs: 
-  hello-command:
+  success-command:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion  == 'success' }}
     steps:
-        - name: List files
-          run: echo "Hello"
+        - run: echo "success"
+  faulire-command:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion  == 'faulire' }}
+    steps:
+        - run: echo "faulire"
