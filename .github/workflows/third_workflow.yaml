@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: Display node version on ubuntu
-          run: |
-            pwd
-            ls -la
+          run: ls -la
+        - uses: actions/checkout@v4    
+        - name: List files
+          run: ls -la
