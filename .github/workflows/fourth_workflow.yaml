@@ -1,0 +1,18 @@
+name: Fourth workflow
+on: 
+  workflow_run:
+    workflows: [Third workflow]
+    types:
+      - completed
+
+jobs: 
+  success-command:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion  == 'success' }}
+    steps:
+        - run: echo "success"
+  faulire-command:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion  == 'faulire' }}
+    steps:
+        - run: echo "faulire"
