@@ -3,6 +3,9 @@ on: push
 jobs: 
   test-docker-container:
     runs-on: ubuntu-latest
+    services:
+      customMysql:
+        image: mysql
     container:
       image: node:12
       env:
@@ -10,6 +13,8 @@ jobs:
       ports: 
         - 80
     steps:
+      - name: Display service image
+        run: echo '${{ toJson(job.sevices) }}'
       - name: Display node version
         run: node -v
       - name: Print new node version
