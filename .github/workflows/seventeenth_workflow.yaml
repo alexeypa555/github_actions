@@ -12,4 +12,4 @@ jobs:
   call-workflow:
     uses: ./.github/workflows/workflow.yml
     with:
-      title: ${{ input.ttile }}
+      title: ${{ inputs.ttile }}
