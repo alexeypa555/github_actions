@@ -19,12 +19,12 @@ jobs:
           if: ${{ success() }}
           run: echo 'Runs on success'
         - name: Runs on failure
-          if: ${{ failure() }}
+          if: ${{ failure()  && steps.first-step.conclusion == 'failure' }}
           run: echo 'Runs on failure'
   run-second-command:
     runs-on: ubuntu-latest
     needs: run-first-command
-    if: ${{ failure() && steps.first-step.conclusion == 'failure' }}
+    if: ${{ failure() }}
     steps:
         - name: Runs on cancelled
           run: echo 'Runs on cancelled'
