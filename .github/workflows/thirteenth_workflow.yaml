@@ -19,3 +19,10 @@ jobs:
         - name: Runs on failure
           if: ${{ failure() }}
           run: echo 'Runs on failure'
+  run-second-command:
+    runs-on: ubuntu-latest
+    needs: run-first-command
+    if: ${{ cancelled() }}
+    steps:
+        - name: Runs on cancelled
+          run: echo 'Runs on cancelled'
