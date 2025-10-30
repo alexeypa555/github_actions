@@ -4,7 +4,7 @@ env:
   WF_CUSTOM_VAR: WF 1
 
 jobs: 
-  success-command:
+  run-first-command:
     runs-on: ubuntu-latest
     env:
       JOB_CUSTOM_VAR: JOB 1
