@@ -15,7 +15,7 @@ jobs:
           - os: ubuntu-lates
             status: active
         exclude: 
-          - os: ubuntu-lates
+          - os: ubuntu-latest
             node-version: 14
       max-parallel: 2  
       fail-fast: false
