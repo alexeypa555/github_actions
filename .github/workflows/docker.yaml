@@ -1,0 +1,14 @@
+name: Docker
+on: push
+jobs: 
+  test-docker-container:
+    runs-on: ubuntu-latest
+    container:
+      image: node:12
+      env:
+        NODE_ENV: development
+      ports: 
+        - 80
+    steps:
+      - name: Display node version
+        run: node -v
