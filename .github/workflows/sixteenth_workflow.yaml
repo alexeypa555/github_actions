@@ -9,10 +9,10 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node-version: [12 ,14, 18]
-        incude: 
+        include: 
           - os: macos-lates
             node-version: 17
-        exlude: 
+        exclude: 
           - os: ubuntu-lates
             node-version: 14
       max-parallel: 2  
