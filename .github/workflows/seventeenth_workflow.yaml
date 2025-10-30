@@ -13,3 +13,7 @@ jobs:
     uses: ./.github/workflows/workflow.yaml
     with:
       title: ${{ inputs.title }}
+  call-external-workflow:
+    uses: alexeypa555/workflow/.github/workflows/workflow.yaml@main
+    secrets:
+      PASSWORD: ${{ secrets.PASSWORD }}
