@@ -12,3 +12,7 @@ jobs:
     steps:
       - name: Display node version
         run: node -v
+      - name: Print new node version
+        uses: docker://node:13
+        with:
+          args: -v
