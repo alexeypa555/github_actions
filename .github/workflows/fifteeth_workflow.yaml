@@ -25,16 +25,10 @@ jobs:
             value=`cat math-result.txt`
             expr $value \* 2 > math-result.txt
         - name: Delete Artifact
-          uses: actions/github-script@v7
+          uses: geekyeggo/delete-artifact@v5
           with:
-            script: |
-              github.rest.actions.deleteArtifact({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                artifact_id: ${{ steps.artifact-upload.outputs.artifact-id }}
-              });
+            name: math-result
         - name: Upload result
-          id: artifact-upload
           uses: actions/upload-artifact@v4
           with:
             name: math-result
