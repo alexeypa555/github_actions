@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: First step
-          id: first-step
+          id: first-step-1
           # run: sleep 30
           run: exit 1
         - name: Runs on cancelled
