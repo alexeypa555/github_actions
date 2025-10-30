@@ -8,4 +8,5 @@ jobs:
         - name: Event vars
           run: |
             echo '${{ vars.STATUS }}'
+            echo '${{ toJson(vars) }}'
             echo '${{ secrets.PASSWORD }}'
