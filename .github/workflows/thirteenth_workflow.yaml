@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: First step
+          id: first-step
           run: sleep 30
         - name: Runs on cancelled
           if: ${{ cancelled() }}
@@ -22,7 +23,7 @@ jobs:
   run-second-command:
     runs-on: ubuntu-latest
     needs: run-first-command
-    if: ${{ cancelled() }}
+    if: ${{ cancelled() && steps.first-step.conclusion == 'failure' }}
     steps:
         - name: Runs on cancelled
           run: echo 'Runs on cancelled'
