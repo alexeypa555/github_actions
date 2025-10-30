@@ -1,0 +1,13 @@
+name: Twelve workflow
+on: [push]
+
+jobs: 
+  run-first-command:
+    runs-on: ubuntu-latest
+    env:
+      JOB_CUSTOM_VAR: JOB 1
+    steps:
+        - name: Event vars
+          run: |
+            echo '${{ vars.STATUS }}'
+            echo '${{ secrets.PASSWORD }}'
