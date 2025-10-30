@@ -1,0 +1,15 @@
+name: Deventeenth workflow
+on: 
+  workflow_dispatch:
+    inputs: 
+      title: 
+        description: Type the title
+        type: string
+        required: false
+        default: "Hello world"
+
+jobs:
+  call-workflow:
+    uses: ./.github/workflows/workflow.yml
+    with:
+      title: ${{ input.ttile }}
